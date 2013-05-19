@@ -1,0 +1,42 @@
+From 9734bd8de911b018d7b9bbfa07026824883adcc5 Mon Sep 17 00:00:00 2001
+From: Vincent Rabaud <vrabaud@willowgarage.com>
+Date: Sun, 19 May 2013 17:55:00 +0000
+Subject: [PATCH 2/2] fix rules file
+
+---
+ debian/rules.em | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 51e0922..742ee31 100644
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -34,10 +34,7 @@ override_dh_auto_build:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	dh_auto_build && rm -fr @(InstallationPrefix)/bin && rm -fr @(InstallationPrefix)/include && \
+-	rm -fr @(InstallationPrefix)/lib && rm -fr @(InstallationPrefix)/share/OpenCV/haarcascades && \
+-	rm -fr @(InstallationPrefix)/lbpcascades && @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
+-	rm -fr @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
++	dh_auto_build
+ 
+ override_dh_auto_test:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+@@ -53,3 +50,13 @@ override_dh_shlibdeps:
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+ 	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/
++
++override_dh_auto_install:
++	# In case we're installing to a non-standard location, look for a setup.sh
++	# in the install tree that was dropped by catkin, and source it.  It will
++	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
++	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
++	dh_auto_install && rm -fr @(InstallationPrefix)/bin && rm -fr @(InstallationPrefix)/include && \
++	rm -fr @(InstallationPrefix)/lib && rm -fr @(InstallationPrefix)/share/OpenCV/haarcascades && \
++	rm -fr @(InstallationPrefix)/lbpcascades && @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
++	rm -fr @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
+-- 
+1.8.1.2
+
