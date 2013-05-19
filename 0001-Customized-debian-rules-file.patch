@@ -1,0 +1,28 @@
+From 546d7f4e9164dbb994d0dd7898ef02b9944769f7 Mon Sep 17 00:00:00 2001
+From: Vincent Rabaud <vrabaud@willowgarage.com>
+Date: Sun, 19 May 2013 15:05:33 +0000
+Subject: [PATCH] Customized debian rules file
+
+---
+ debian/rules.em | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index d45dd5f..51e0922 100644
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -34,7 +34,10 @@ override_dh_auto_build:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	dh_auto_build
++	dh_auto_build && rm -fr @(InstallationPrefix)/bin && rm -fr @(InstallationPrefix)/include && \
++	rm -fr @(InstallationPrefix)/lib && rm -fr @(InstallationPrefix)/share/OpenCV/haarcascades && \
++	rm -fr @(InstallationPrefix)/lbpcascades && @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
++	rm -fr @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
+ 
+ override_dh_auto_test:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+-- 
+1.8.1.2
+
