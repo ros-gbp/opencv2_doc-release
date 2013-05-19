@@ -34,7 +34,10 @@ override_dh_auto_build:
 	# in the install tree that was dropped by catkin, and source it.  It will
 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
-	dh_auto_build
+	dh_auto_build && rm -fr @(InstallationPrefix)/bin && rm -fr @(InstallationPrefix)/include && \
+	rm -fr @(InstallationPrefix)/lib && rm -fr @(InstallationPrefix)/share/OpenCV/haarcascades && \
+	rm -fr @(InstallationPrefix)/lbpcascades && @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
+	rm -fr @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
 
 override_dh_auto_test:
 	# In case we're installing to a non-standard location, look for a setup.sh
