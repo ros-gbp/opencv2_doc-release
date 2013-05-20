@@ -58,5 +58,5 @@ override_dh_auto_install:
 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
 	dh_auto_install && rm -fr @(InstallationPrefix)/bin && rm -fr @(InstallationPrefix)/include && \
 	rm -fr @(InstallationPrefix)/lib && rm -fr @(InstallationPrefix)/share/OpenCV/haarcascades && \
-	rm -fr @(InstallationPrefix)/lbpcascades && @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
-	rm -fr @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
+	rm -fr @(InstallationPrefix)/lbpcascades && rm @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
+	rm @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
