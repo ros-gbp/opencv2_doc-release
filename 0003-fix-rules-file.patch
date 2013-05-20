@@ -1,0 +1,24 @@
+From 6526d47f439f1624e28f99847e7d2f0c7483910a Mon Sep 17 00:00:00 2001
+From: Vincent Rabaud <vrabaud@willowgarage.com>
+Date: Mon, 20 May 2013 19:00:09 +0000
+Subject: [PATCH 3/3] fix rules file
+
+---
+ debian/rules.em | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 742ee31..26cc45d 100644
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -58,5 +58,5 @@ override_dh_auto_install:
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+ 	dh_auto_install && rm -fr @(InstallationPrefix)/bin && rm -fr @(InstallationPrefix)/include && \
+ 	rm -fr @(InstallationPrefix)/lib && rm -fr @(InstallationPrefix)/share/OpenCV/haarcascades && \
+-	rm -fr @(InstallationPrefix)/lbpcascades && @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
+-	rm -fr @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
++	rm -fr @(InstallationPrefix)/lbpcascades && rm @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
++	rm @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
+-- 
+1.8.1.2
+
