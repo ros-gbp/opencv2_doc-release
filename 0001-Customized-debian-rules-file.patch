@@ -1,7 +1,7 @@
-From d84a6ab39b6bc21ff68bcf545d96e2f02a6a7ce0 Mon Sep 17 00:00:00 2001
+From 1a52ce1bd9db7ad55091c105061748b87e976043 Mon Sep 17 00:00:00 2001
 From: Vincent Rabaud <vrabaud@willowgarage.com>
 Date: Sun, 19 May 2013 15:05:33 +0000
-Subject: [PATCH 1/4] Customized debian rules file
+Subject: [PATCH 1/5] Customized debian rules file
 
 ---
  debian/rules.em | 5 ++++-
