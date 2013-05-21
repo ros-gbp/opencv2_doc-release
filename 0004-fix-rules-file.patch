@@ -1,0 +1,32 @@
+From 3ae850f08d662ae04eb7deb1f808d9b202499b21 Mon Sep 17 00:00:00 2001
+From: Vincent Rabaud <vrabaud@willowgarage.com>
+Date: Tue, 21 May 2013 06:45:10 +0000
+Subject: [PATCH 4/4] fix rules file
+
+---
+ debian/rules.em | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 26cc45d..cd3d54b 100644
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -56,7 +56,11 @@ override_dh_auto_install:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	dh_auto_install && rm -fr @(InstallationPrefix)/bin && rm -fr @(InstallationPrefix)/include && \
+-	rm -fr @(InstallationPrefix)/lib && rm -fr @(InstallationPrefix)/share/OpenCV/haarcascades && \
+-	rm -fr @(InstallationPrefix)/lbpcascades && rm @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
+-	rm @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
++	dh_auto_install && \
++	find $(CURDIR)/debian/ros* -name bin -type d | xargs rm -fr && \
++	find $(CURDIR)/debian/ros* -name include -type d | xargs rm -fr && \
++	find $(CURDIR)/debian/ros* -name lib -type d | xargs rm -fr && \
++	find $(CURDIR)/debian/ros* -name haarcascades -type d | xargs rm -fr && \
++	find $(CURDIR)/debian/ros* -name lbpcascades -type d | xargs rm -fr && \
++	find $(CURDIR)/debian/ros* -name OpenCVConfig-version.cmake | xargs rm -fr && \
++	find $(CURDIR)/debian/ros* -name OpenCVConfig.cmake | xargs rm -fr
+-- 
+1.8.1.2
+
