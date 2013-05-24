@@ -1,7 +1,7 @@
-From e08e5eab146390608374976bba4fb09ba606b99b Mon Sep 17 00:00:00 2001
+From fe7f7a9bfab111b502083fc17473f1104178e07c Mon Sep 17 00:00:00 2001
 From: Vincent Rabaud <vrabaud@willowgarage.com>
 Date: Tue, 21 May 2013 21:05:36 +0000
-Subject: [PATCH] provide fixed rules.em file
+Subject: [PATCH 1/2] provide fixed rules.em file
 
 ---
  debian/rules.em | 16 +++++++++++++++-
