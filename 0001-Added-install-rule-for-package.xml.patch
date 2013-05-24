@@ -1,4 +1,4 @@
-From b567b1cb25f62e886ea534c0470c9c1db561a08a Mon Sep 17 00:00:00 2001
+From 9ceea83573b6a707438772a47b76019732d338a4 Mon Sep 17 00:00:00 2001
 From: Vincent Rabaud <vrabaud@willowgarage.com>
 Date: Sun, 19 May 2013 14:51:10 +0000
 Subject: [PATCH] Added install rule for package.xml
