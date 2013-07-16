@@ -1,10 +1,10 @@
-From 549cc1e8a05becee54f64d0ae55bfb813453bac7 Mon Sep 17 00:00:00 2001
+From fbab51932f349cce0850201079d0f798064da044 Mon Sep 17 00:00:00 2001
 From: Vincent Rabaud <vrabaud@willowgarage.com>
 Date: Sun, 19 May 2013 17:55:00 +0000
 Subject: [PATCH 2/6] fix rules file
 
 ---
- debian/rules.em | 15 +++++++++++----
+ debian/rules.em |   15 +++++++++++----
  1 file changed, 11 insertions(+), 4 deletions(-)
 
 diff --git a/debian/rules.em b/debian/rules.em
@@ -38,5 +38,5 @@ index 51e0922..742ee31 100644
 +	rm -fr @(InstallationPrefix)/lbpcascades && @(InstallationPrefix)/share/OpenCV/OpenCVConfig-version.cmake && \
 +	rm -fr @(InstallationPrefix)/share/OpenCV/OpenCVConfig.cmake
 -- 
-1.8.1.2
+1.7.9.5
 

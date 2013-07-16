@@ -1,10 +1,10 @@
-From aef5ab66ca2486ae2afae01be9c6149c6174d4dd Mon Sep 17 00:00:00 2001
+From 9f47b178c668f71e8e9ac4ac082d00c4f8bf8697 Mon Sep 17 00:00:00 2001
 From: Vincent Rabaud <vrabaud@willowgarage.com>
 Date: Tue, 21 May 2013 06:45:10 +0000
 Subject: [PATCH 4/6] fix rules file
 
 ---
- debian/rules.em | 12 ++++++++----
+ debian/rules.em |   12 ++++++++----
  1 file changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/debian/rules.em b/debian/rules.em
@@ -28,5 +28,5 @@ index 26cc45d..cd3d54b 100644
 +	find $(CURDIR)/debian/ros* -name OpenCVConfig-version.cmake | xargs rm -fr && \
 +	find $(CURDIR)/debian/ros* -name OpenCVConfig.cmake | xargs rm -fr
 -- 
-1.8.1.2
+1.7.9.5
 

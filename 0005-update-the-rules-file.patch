@@ -1,10 +1,10 @@
-From 8baafb20395a658aadb679a3e9a0f7a7626c0cad Mon Sep 17 00:00:00 2001
+From a751428d7d268cf548b9b6a9440cf59bce79120a Mon Sep 17 00:00:00 2001
 From: Vincent Rabaud <vrabaud@willowgarage.com>
 Date: Tue, 21 May 2013 18:03:17 +0000
 Subject: [PATCH 5/6] update the rules file
 
 ---
- debian/rules.em | 2 +-
+ debian/rules.em |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/debian/rules.em b/debian/rules.em
@@ -21,5 +21,5 @@ index cd3d54b..f12cd0e 100644
  override_dh_auto_test:
  	# In case we're installing to a non-standard location, look for a setup.sh
 -- 
-1.8.1.2
+1.7.9.5
 
